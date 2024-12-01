@@ -1,33 +1,71 @@
 package actividad3_2;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * La clase Calculadora proporciona operaciones matemáticas básicas
+ * como suma, resta, multiplicación, división, y cálculo de potencias.
+ * También permite ver y limpiar el historial de operaciones realizadas.
+ */
 public class Calculadora {
 
     private ArrayList<String> historial;
 
+    /**
+     * Constructor de la clase Calculadora. Inicializa el historial de operaciones.
+     */
     public Calculadora() {
         historial = new ArrayList<>();
     }
 
+    /**
+     * Realiza la suma de dos números enteros.
+     * 
+     * @param a Primer número para sumar.
+     * @param b Segundo número para sumar.
+     * @return El resultado de la suma de a y b.
+     */
     public int sumar(int a, int b) {
         int resultado = a + b;
         historial.add("Suma: " + a + " + " + b + " = " + resultado);
         return resultado;
     }
 
+    /**
+     * Realiza la resta de dos números enteros.
+     * 
+     * @param a Primer número para restar.
+     * @param b Segundo número para restar.
+     * @return El resultado de la resta de a y b.
+     */
     public int restar(int a, int b) {
         int resultado = a - b;
         historial.add("Resta: " + a + " - " + b + " = " + resultado);
         return resultado;
     }
 
+    /**
+     * Realiza la multiplicación de dos números enteros.
+     * 
+     * @param a Primer número para multiplicar.
+     * @param b Segundo número para multiplicar.
+     * @return El resultado de la multiplicación de a y b.
+     */
     public int multiplicar(int a, int b) {
         int resultado = a * b;
         historial.add("Multiplicación: " + a + " * " + b + " = " + resultado);
         return resultado;
     }
 
+    /**
+     * Realiza la división de dos números enteros. Si el divisor es 0, lanza una excepción.
+     * 
+     * @param a Numerador de la división.
+     * @param b Denominador de la división.
+     * @return El resultado de la división de a entre b.
+     * @throws ArithmeticException Si el denominador es 0.
+     */
     public double dividir(int a, int b) throws ArithmeticException {
         if (b == 0) {
             throw new ArithmeticException("No se puede dividir por cero.");
@@ -37,6 +75,14 @@ public class Calculadora {
         return resultado;
     }
 
+    /**
+     * Realiza el cálculo de la potencia de un número con un exponente no negativo.
+     * 
+     * @param base La base de la potencia.
+     * @param exponente El exponente de la potencia.
+     * @return El resultado de base elevado a la potencia de exponente.
+     * @throws IllegalArgumentException Si el exponente es negativo.
+     */
     public double potencia(int base, int exponente) throws IllegalArgumentException {
         if (exponente < 0) {
             throw new IllegalArgumentException("El exponente no puede ser negativo.");
@@ -46,15 +92,28 @@ public class Calculadora {
         return resultado;
     }
 
+    /**
+     * Devuelve el historial de operaciones realizadas.
+     * 
+     * @return Un ArrayList con las operaciones realizadas en formato de texto.
+     */
     public ArrayList<String> verHistorial() {
         return historial;
     }
 
+    /**
+     * Limpia el historial de operaciones.
+     */
     public void limpiarHistorial() {
         historial.clear();
         System.out.println("El historial ha sido limpiado.");
     }
 
+    /**
+     * Método principal que ejecuta el menú de la calculadora y permite al usuario realizar operaciones.
+     * 
+     * @param args Argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calculadora calculadora = new Calculadora();
@@ -140,3 +199,4 @@ public class Calculadora {
         scanner.close();
     }
 }
+
