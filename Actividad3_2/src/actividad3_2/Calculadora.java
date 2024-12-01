@@ -63,7 +63,7 @@ public class Calculadora {
      * 
      * @param a Numerador de la división.
      * @param b Denominador de la división.
-     * @return El resultado de la división de a entre b.
+     * @return El resultdo de la división de a entre b.
      * @throws ArithmeticException Si el denominador es 0.
      */
     public double dividir(int a, int b) throws ArithmeticException {
